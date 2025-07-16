@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaRich Signal Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --bg: #222c36;
+            --surface: #fff;
+            --text: #222;
+            --muted: #b3c0e0;
+            --border: #e5e7eb;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(30,40,80,0.08);
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans KR', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.4;
+        }
+        .header-bar {
+            background: #fff;
+            color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 80px;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+        .logo {
+            position: absolute;
+            left: 40px;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #222;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+        }
+        .main-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-align: center;
+            width: 100%;
+        }
+        nav {
+            background: transparent;
+            color: #f3f6fa;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            height: 56px;
+            border-bottom: 1px solid var(--border);
+            justify-content: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 36px;
+            justify-content: center;
+            align-items: center;
+        }
+        nav li {
+            font-size: 1.05rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        nav li:hover {
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 16px 16px 16px;
+            gap: 40px;
+        }
+        .main-content {
+            flex: 1;
+            margin-right: 0;
+        }
+        .main-content h1 {
+            font-size: 2.5rem;
+            color: #f3f6fa;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        .main-content .subtitle {
+            font-size: 1.25rem;
+            color: #f3f6fa;
+            margin-bottom: 1.5em;
+            font-weight: 600;
+        }
+        .highlight {
+            color: #f3f6fa;
+            font-weight: 700;
+        }
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 2em;
+        }
+        .service-item {
+            background: rgba(34,44,54,0.82);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 32px 24px;
+            flex: 1 1 260px;
+            min-width: 220px;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .service-item:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(30,40,80,0.13);
+        }
+        .service-item h3 {
+            margin-top: 0;
+            color: #f3f6fa;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        .sticky-form {
+            width: 15%;
+            min-width: 160px;
+            max-width: 220px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 40px;
+            background: rgba(34,44,54,0.92);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 12px 8px 10px 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: #fff;
+            z-index: 20;
+        }
+        .sticky-form h2 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #fff;
+            font-weight: 700;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #f3f6fa;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 7px 8px;
+            border: 1.5px solid #3b82f6;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.10);
+            color: #fff;
+            transition: border 0.2s;
+            box-sizing: border-box;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border: 1.5px solid #fff;
+            outline: none;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 50px;
+        }
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(30,40,80,0.10);
+            transition: background 0.2s, transform 0.1s;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            transform: translateY(-2px) scale(1.01);
+        }
+        footer {
+            background: rgba(34,44,54,0.92);
+            color: #b3c0e0;
+            padding: 40px 0 20px 0;
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 64px;
+            border-top: 1px solid var(--border);
+        }
+        .footer-links {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #b3c0e0;
+            margin: 0 10px;
+            text-decoration: underline;
+            font-size: 1rem;
+        }
+        @media (max-width: 1100px) {
+            .container { flex-direction: column; gap: 0; }
+            .sticky-form { width: 100%; position: static; margin-top: 32px; right: 0; left: 0; }
+        }
+        @media (max-width: 600px) {
+            .header-bar { height: 60px; }
+            .logo { left: 16px; font-size: 1.2rem; }
+            .main-title { font-size: 1.1rem; }
+            nav { padding: 0 8px; height: 44px; }
+            nav ul { gap: 16px; }
+            .container { padding: 24px 4px 8px 4px; }
+            .main-content h1 { font-size: 1.3rem; }
+            .sticky-form { width: 100%; padding: 18px 8px; position: static; margin-top: 32px; right: 0; left: 0; }
+        }
+        .force-white, .force-white *:not(.main-title),
+        .main-content, .main-content *,
+        .service-item, .service-item *,
+        section, section *,
+        ul, ul *,
+        li, li *,
+        p, h1, h2, h3, h4, h5, h6 {
+            color: #fff !important;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 0 2px #000;
+        }
+        .main-title {
+            color: #1a237e !important;
+        }
+    </style>
+</head>
+<body class="force-white">
+    <div class="header-bar">
+        <div class="logo"><a href="/" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
+        <div class="main-title">MetaRich Signal Group</div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/public/about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
+            <li><a href="/public/recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
+            <li><a href="#" style="color:inherit;text-decoration:none;">원주지점</a></li>
+            <li><a href="#" style="color:inherit;text-decoration:none;">성남지점</a></li>
+            <li><a href="#" style="color:inherit;text-decoration:none;">이천지점</a></li>
+            <li><a href="/public/support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="main-content">
+            <h1>고객 · CA · METARICH의 동행</h1>
+            <div class="subtitle">모두가 풍요로운 세상을 희망합니다.</div>
+            <div class="highlight">보험 선택을 위한 <span class="highlight">Choice architect</span></div>
+            <p>너무 많은 보험 정보 속 올바른 선택을 위한 당신만의 선택 설계자, <b>메타리치</b>가 함께합니다.<br>
+            <b>생애주기별 맞춤 보장</b>과 <b>33개사 보험사 상품 비교</b>, <b>유전자 기반 과학적 설계</b>로<br>
+            고객님의 경제적 안정과 행복을 지켜드리겠습니다.</p>
+            <div class="service-list">
+                <div class="service-item">
+                    <h3>생애주기별 맞춤 보장</h3>
+                    <p>내 시간은 항상 나아가는데, 왜 보험 보장내역은 멈춰있을까?<br>고객의 생애주기에 맞춘 최적의 보장 설계</p>
+                </div>
+                <div class="service-item">
+                    <h3>33개사 보험사 상품 비교</h3>
+                    <p>상품군 별 꼼꼼한 비교분석을 통한, 나에게 맞는 보험!<br>당신이 선택하세요. 당신 옆의 선택 설계자</p>
+                </div>
+                <div class="service-item">
+                    <h3>유전자 기반 과학적 설계</h3>
+                    <p>유전자 분석 데이터를 통한 개인 맞춤형 보장분석 서비스</p>
+                </div>
+            </div>
+            <section>
+                <h2>회사 소개</h2>
+                <p>메타리치는 고객과 영업가족의 경제적 안정과 행복을 지켜드리는 보험 전문 그룹입니다.<br>
+                언제나 고객과 함께하며, 투명하고 건강하게 성장하는 회사로 자리매김할 것을 약속합니다.</p>
+            </section>
+            <section>
+                <h2>메타리치 소식</h2>
+                <ul>
+                    <li>금융전문직 육성 메타리치, MZ부트캠프 2기 교육생 모집</li>
+                    <li>AI기반 금융전문직 양성, 대형보험GA '메타리치' 인터스텔라에서 MZ부트캠프 출발</li>
+                    <li>신입 보험설계사 A부터Z까지, 대형GA 메타리치가 책임진다.</li>
+                </ul>
+            </section>
+        </div>
+
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="https://metadevelop.imweb.me/59" target="_blank">개인정보처리방침</a> |
+            <a href="https://metadevelop.imweb.me/FinancialConsumerProtection1" target="_blank">금융소비자보호 내부통제규정</a> |
+            <a href="https://metadevelop.imweb.me/FinancialConsumerProtection3" target="_blank">보험대리점등록증</a> |
+            <a href="https://meta-on.kr/#/inquiry" target="_blank">모집종사자 조회</a>
+        </div>
+        <div>
+            <b>주식회사 메타리치</b> | 대표자 홍지영 | 사업자등록번호 126-86-82797 | 보험대리점 등록번호 제 2023070016호<br>
+            주소 경기도 과천시 양지마을로 20 2층 (과천동) , 대한민국 | 대표전화 02-503-7175<br>
+            Copyright ⓒ 2023 메타리치 All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
