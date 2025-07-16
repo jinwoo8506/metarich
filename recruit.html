@@ -175,13 +175,100 @@
             .main-title { font-size: 1.1rem; }
             .recruit-hero h1 { font-size: 1.2rem; }
         }
+#apply-form-section form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+#apply-form-section .form-group {
+  margin-bottom: 12px;
+}
+#apply-form-section label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #2563eb;
+  font-size: 0.98rem;
+}
+#apply-form-section input,
+#apply-form-section textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #b3c0e0;
+  border-radius: 6px;
+  font-size: 0.98rem;
+  background: #f8fafc;
+  color: #222;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+#apply-form-section input:focus,
+#apply-form-section textarea:focus {
+  border: 1.5px solid #2563eb;
+  outline: none;
+}
+#apply-form-section textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+#apply-form-section .submit-btn {
+  width: 100%;
+  background: linear-gradient(90deg,#3b82f6,#2563eb);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30,40,80,0.10);
+  transition: background 0.2s,transform 0.1s;
+  margin-top: 8px;
+}
+#apply-form-section .submit-btn:hover {
+  background: linear-gradient(90deg,#2563eb,#3b82f6);
+}
+        nav {
+            background: transparent;
+            color: #f3f6fa;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            height: 56px;
+            border-bottom: 1px solid #e5e7eb;
+            justify-content: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 36px;
+            justify-content: center;
+            align-items: center;
+        }
+        nav li {
+            font-size: 1.05rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        nav li:hover {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="header-bar">
-        <div class="logo"><a href="/" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
+        <div class="logo"><a href="../index.html" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
         <div class="main-title">MetaRich Signal Group</div>
     </div>
+    <nav>
+      <ul>
+        <li><a href="about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
+        <li><a href="recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
+        <li><a href="support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
+      </ul>
+    </nav>
     <div class="recruit-hero">
         <div style="text-align:center; margin-bottom: 18px;">
             <span style="font-family: 'Montserrat', 'Inter', Arial, sans-serif; font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: 0.12em;">Adviser</span>
@@ -232,7 +319,52 @@
                 <div>박람회, 홈쇼핑, 온라인·병원 연계 마케팅 등<br>고객이 자발적으로 찾아오는 양질의 시장 제공</div>
             </div>
         </div>
-        <a class="recruit-cta" href="mailto:recruit@meta-rich.co.kr">CA 입사지원 (신입 & 경력)</a>
+        <a class="recruit-cta" href="#" id="show-apply-form">CA 입사지원 (신입 & 경력)</a>
     </div>
+    <div id="apply-form-section" style="display:none; max-width:600px; margin:40px auto 0 auto; background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(30,40,80,0.10); padding:32px 24px; color:#222;">
+        <h2 style="color:#2563eb; text-align:center; margin-bottom:1em;">CA 입사지원 접수</h2>
+        <form method="POST" action="mailto:recruit@meta-rich.co.kr">
+            <div class="form-group">
+                <label for="apply-name">이름</label>
+                <input type="text" id="apply-name" name="name" required style="width:100%;padding:10px 12px;border:1.5px solid #3b82f6;border-radius:8px;font-size:1rem;">
+            </div>
+            <div class="form-group">
+                <label for="apply-phone">연락처</label>
+                <input type="text" id="apply-phone" name="phone" required style="width:100%;padding:10px 12px;border:1.5px solid #3b82f6;border-radius:8px;font-size:1rem;">
+            </div>
+            <div class="form-group">
+                <label for="apply-email">이메일</label>
+                <input type="email" id="apply-email" name="email" style="width:100%;padding:10px 12px;border:1.5px solid #3b82f6;border-radius:8px;font-size:1rem;">
+            </div>
+            <div class="form-group">
+                <label for="apply-message">지원 동기 및 자기소개</label>
+                <textarea id="apply-message" name="message" required style="width:100%;padding:10px 12px;border:1.5px solid #3b82f6;border-radius:8px;font-size:1rem;min-height:80px;"></textarea>
+            </div>
+            <button class="submit-btn" type="submit" style="width:100%;background:linear-gradient(90deg,#3b82f6,#2563eb);color:#fff;border:none;border-radius:8px;padding:14px;font-size:1.1rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(30,40,80,0.10);transition:background 0.2s,transform 0.1s;">지원서 제출</button>
+        </form>
+    </div>
+    <script>
+    function showApplyFormIfHash() {
+        var formSection = document.getElementById('apply-form-section');
+        if (window.location.hash === '#apply-form-section') {
+            formSection.style.display = 'block';
+            setTimeout(function() {
+                window.scrollTo({top:formSection.offsetTop-40, behavior:'smooth'});
+            }, 100);
+        }
+    }
+    document.getElementById('show-apply-form').addEventListener('click', function(e) {
+        e.preventDefault();
+        var formSection = document.getElementById('apply-form-section');
+        if(formSection.style.display === 'none') {
+            formSection.style.display = 'block';
+            window.scrollTo({top:formSection.offsetTop-40, behavior:'smooth'});
+        } else {
+            formSection.style.display = 'none';
+        }
+    });
+    window.addEventListener('DOMContentLoaded', showApplyFormIfHash);
+    window.addEventListener('hashchange', showApplyFormIfHash);
+</script>
 </body>
 </html> 
