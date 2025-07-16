@@ -129,6 +129,12 @@
             margin-bottom: 2.5em;
             align-items: flex-start;
         }
+        .staff-row {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 2.5em;
+        }
         .staff-card {
             flex: 1 1 180px;
             min-width: 160px;
@@ -275,22 +281,24 @@
         <div style="text-align:center; margin-bottom: 18px;">
             <span style="font-family: 'Montserrat', 'Inter', Arial, sans-serif; font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: 0.12em;">Adviser</span>
         </div>
-        <div class="staff-intro">
+        <div class="staff-intro" style="flex-direction:column;align-items:center;gap:32px;">
+          <div class="staff-card staff-center">
+            <img class="staff-photo" src="박주완.jpg" alt="프로필3" style="width:154px;height:154px;">
+            <div class="staff-name">박주완</div>
+            <div class="staff-title">사업부장</div>
+          </div>
+          <div class="staff-row">
             <div class="staff-card staff-side">
-                <img class="staff-photo" src="배진우.jpg" alt="프로필1">
-                <div class="staff-name">배진우</div>
-                <div class="staff-title">팀장</div>
-            </div>
-            <div class="staff-card staff-center">
-                <img class="staff-photo" src="박주완.jpg" alt="프로필3">
-                <div class="staff-name">박주완</div>
-                <div class="staff-title">사업부장</div>
+              <img class="staff-photo" src="배진우.jpg" alt="프로필1">
+              <div class="staff-name">배진우</div>
+              <div class="staff-title">팀장</div>
             </div>
             <div class="staff-card staff-side">
-                <img class="staff-photo" src="채홍교.jpg" alt="프로필2">
-                <div class="staff-name">채홍교</div>
-                <div class="staff-title">팀장</div>
-            </div>    
+              <img class="staff-photo" src="채홍교.jpg" alt="프로필2">
+              <div class="staff-name">채홍교</div>
+              <div class="staff-title">팀장</div>
+            </div>
+          </div>
         </div>
         <h1>창의, 전문성, 열정으로 혁신을 선도하는<br>메타리치의 가족을 찾습니다</h1>
         <div class="desc">업계 최고 대우, 효율적인 조직관리, 강력한 온라인 마케팅 지원, DB 제공 시스템까지!<br>신입&경력 모두 환영합니다. 지금 MetaRich에서 새로운 미래를 시작하세요.</div>
