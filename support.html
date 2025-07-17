@@ -226,9 +226,32 @@
         <h1>고객지원</h1>
         <div class="desc">고객님의 행복과 권익 보호를 위해<br>따뜻하고 든든한 금융서비스를 제공합니다.</div>
         
-        <div class="claim-form">
+        <div class="claim-form" style="max-width:60%;margin:0 auto;">
             <h2>보험금 청구 신청</h2>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvPTyYNjYcL2NI_Dqik4hpAJarL6pjl3s45UnyeYWPJcnxBA/viewform?embedded=true" width="512" height="727" frameborder="0" marginheight="0" marginwidth="0" style="overflow:hidden;">로드 중…</iframe>
+            <form id="claimForm" method="POST" action="https://formspree.io/f/xrblgndz">
+                <div class="form-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">연락처</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">이메일 <span style="color:#b3c0e0;font-size:0.95em;">(선택)</span></label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="desc">청구 내용</label>
+                    <textarea id="desc" name="desc" required placeholder="예) 실비, 수술비" onfocus="this.placeholder=''" onblur="if(this.value===''){this.placeholder='예) 실비, 수술비'}"></textarea>
+                </div>
+                <div class="form-group" style="display:flex;align-items:center;justify-content:center;margin-bottom:18px;gap:18px;">
+                    <input type="checkbox" id="privacy_agree" name="privacy_agree" required style="margin-right:12px;transform:scale(2);">
+                    <label for="privacy_agree" style="font-size:1.15rem;font-weight:700;white-space:nowrap;">개인정보 수집 및 이용 동의 (신청 목적 외 사용 불가)</label>
+                </div>
+                <input type="hidden" name="form_type" value="insurance_claim">
+                <button class="submit-btn" type="submit">신청하기</button>
+            </form>
         </div>
         <!-- 성공 안내 모달 -->
         <div id="successModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:9999; align-items:center; justify-content:center;">
