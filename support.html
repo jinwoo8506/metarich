@@ -228,26 +228,7 @@
         
         <div class="claim-form">
             <h2>보험금 청구 신청</h2>
-            <form id="claimForm" method="POST" action="https://formspree.io/f/xkgznlwz">
-                <div class="form-group">
-                    <label for="name">이름</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">연락처</label>
-                    <input type="text" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">이메일</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div class="form-group">
-                    <label for="desc">청구 내용</label>
-                    <textarea id="desc" name="desc" required placeholder="예) 실비, 수술비" onfocus="this.placeholder=''" onblur="if(this.value===''){this.placeholder='예) 실비, 수술비'}"></textarea>
-                </div>
-                <input type="hidden" name="form_type" value="insurance_claim">
-                <button class="submit-btn" type="submit">신청하기</button>
-            </form>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvPTyYNjYcL2NI_Dqik4hpAJarL6pjl3s45UnyeYWPJcnxBA/viewform?embedded=true" width="512" height="727" frameborder="0" marginheight="0" marginwidth="0" style="overflow:hidden;">로드 중…</iframe>
         </div>
         <!-- 성공 안내 모달 -->
         <div id="successModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:9999; align-items:center; justify-content:center;">
