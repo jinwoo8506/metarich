@@ -227,7 +227,7 @@
         
         <div class="claim-form">
             <h2>보험금 청구 신청</h2>
-            <form method="POST" action="/claim">
+            <form method="POST" action="https://formspree.io/f/xkgznlwz">
                 <div class="form-group">
                     <label for="name">이름</label>
                     <input type="text" id="name" name="name" required>
@@ -244,6 +244,7 @@
                     <label for="desc">청구 내용</label>
                     <textarea id="desc" name="desc" required placeholder="예) 실비, 수술비" onfocus="this.placeholder=''" onblur="if(this.value===''){this.placeholder='예) 실비, 수술비'}"></textarea>
                 </div>
+                <input type="hidden" name="form_type" value="insurance_claim">
                 <button class="submit-btn" type="submit">신청하기</button>
             </form>
         </div>
