@@ -4,23 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>인재채용 | MetaRich Signal Group</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --bg: #222c36;
+            --surface: #fff;
+            --text: #222;
+            --muted: #b3c0e0;
+            --border: #e5e7eb;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(30,40,80,0.08);
+        }
+        html, body {
+            height: 100%;
+        }
         body {
             font-family: 'Inter', 'Noto Sans KR', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #222c36;
-            color: #fff;
+            background: var(--bg);
+            color: var(--text);
         }
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             z-index: -1;
-            background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
             background-size: cover;
-            opacity: 0.3;
+            opacity: 0.4;
         }
         .header-bar {
             background: #fff;
@@ -30,287 +44,346 @@
             justify-content: center;
             position: relative;
             height: 80px;
-            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
+            box-shadow: var(--shadow);
             z-index: 10;
         }
         .logo {
             position: absolute;
             left: 40px;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #222;
             top: 50%;
             transform: translateY(-50%);
-        }
-        .logo img {
-            height: 54px;
-            vertical-align: middle;
+            display: flex;
+            align-items: center;
         }
         .main-title {
-            font-family: 'Montserrat', 'Inter', 'Noto Sans KR', Arial, sans-serif;
-            font-size: 2.6rem;
-            font-weight: 900;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-align: center;
             width: 100%;
-            color: #1a237e;
+        }
+        nav {
+            background: transparent;
+            color: #f3f6fa;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            height: 56px;
+            border-bottom: 1px solid var(--border);
+            justify-content: center;
+        }
+        nav ul {
+            list-style: none;
             margin: 0;
-            line-height: 1.2;
-            text-shadow: 0 2px 8px rgba(26,35,126,0.18), 0 0 2px #000;
+            padding: 0;
+            display: flex;
+            gap: 36px;
+            justify-content: center;
+            align-items: center;
         }
-        .recruit-hero {
-            max-width: 900px;
-            margin: 60px auto 0 auto;
-            background: rgba(34,44,54,0.92);
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            padding: 48px 32px 40px 32px;
-            text-align: center;
+        nav li {
+            font-size: 1.05rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s;
         }
-        .recruit-hero h1 {
-            font-family: 'Montserrat', 'Inter', 'Noto Sans KR', Arial, sans-serif;
-            font-size: 2.2rem;
-            font-weight: 900;
+        nav li:hover {
             color: #fff;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 16px 16px 16px;
+            gap: 40px;
+        }
+        .main-content {
+            flex: 1;
+            margin-right: 0;
+        }
+        .main-content h1 {
+            font-size: 2.5rem;
+            color: #f3f6fa;
             margin-bottom: 0.5em;
-            letter-spacing: 0.12em;
-        }
-        .recruit-hero .desc {
-            font-size: 1.2rem;
-            color: #fff;
-            margin-bottom: 2em;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 0 2px #000;
-        }
-        .recruit-values {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2em;
-        }
-        .recruit-value {
-            flex: 1 1 180px;
-            min-width: 160px;
-            background: rgba(255,255,255,0.10);
-            border-radius: 12px;
-            padding: 28px 18px 20px 18px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(30,40,80,0.06);
-            transition: transform 0.18s cubic-bezier(.4,2,.6,1);
-        }
-        .recruit-value:hover {
-            transform: scale(1.05);
-        }
-        .recruit-value svg {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 12px;
-            color: #3b82f6;
-        }
-        .recruit-value-title {
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.3em;
-            font-size: 1.1rem;
         }
-        .recruit-cta {
-            display: inline-block;
-            background: linear-gradient(90deg, #3b82f6, #2563eb);
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            padding: 16px 36px;
-            text-decoration: none;
-            box-shadow: 0 2px 12px rgba(30,40,80,0.10);
-            transition: background 0.2s, color 0.2s;
-            margin-top: 24px;
-        }
-        .recruit-cta:hover {
-            background: linear-gradient(90deg, #2563eb, #3b82f6);
-            color: #fff;
-        }
-        .staff-intro {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            margin-bottom: 2.5em;
-            align-items: flex-start;
-        }
-        .staff-card {
-            flex: 1 1 180px;
-            min-width: 160px;
-            background: rgba(255,255,255,0.13);
-            border-radius: 14px;
-            padding: 70px 18px 62px 18px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(30,40,80,0.08);
-        }
-        .staff-photo {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 14px;
-            border: 3px solid #fff;
-        }
-        .staff-name {
-            font-weight: 700;
-            color: #fff;
-            font-size: 1.3rem;
-            margin-bottom: 0.2em;
-        }
-        .staff-title {
-            color: #fff;
-            font-size: 1.15rem;
-            opacity: 1;
+        .main-content .subtitle {
+            font-size: 1.25rem;
+            color: #f3f6fa;
+            margin-bottom: 1.5em;
             font-weight: 600;
         }
-        .staff-center {
-            z-index: 1;
+        .highlight {
+            color: #f3f6fa;
+            font-weight: 700;
         }
-        .staff-side {
-            margin-top: 35%;
-            z-index: 0;
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 2em;
         }
-        @media (max-width: 900px) {
-            .recruit-hero { padding: 24px 6px 24px 6px; }
-            .recruit-values { flex-direction: column; gap: 16px; }
+        .service-item {
+            background: rgba(34,44,54,0.82);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 32px 24px;
+            flex: 1 1 260px;
+            min-width: 220px;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .service-item:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(30,40,80,0.13);
+        }
+        .service-item h3 {
+            margin-top: 0;
+            color: #f3f6fa;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        .recruit-form {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto 32px auto;
+            background: rgba(34,44,54,0.92);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 18px 16px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: #fff;
+        }
+        .recruit-form h2 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #f3f6fa;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 7px 8px;
+            border: 1.5px solid #3b82f6;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.10);
+            color: #fff;
+            transition: border 0.2s;
+            box-sizing: border-box;
+        }
+        .form-group select, .form-group select option {
+            color: #222;
+            background: #fff;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border: 1.5px solid #fff;
+            outline: none;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 50px;
+        }
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(30,40,80,0.10);
+            transition: background 0.2s, transform 0.1s;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            transform: translateY(-2px) scale(1.01);
+        }
+        @media (max-width: 1100px) {
+            .container { flex-direction: column; gap: 0; }
+            .recruit-form { width: 100%; position: static; margin-top: 32px; right: 0; left: 0; }
         }
         @media (max-width: 600px) {
             .header-bar { height: 60px; }
-            .logo { left: 12px; }
+            .logo { left: 16px; font-size: 1.2rem; }
             .main-title { font-size: 1.1rem; }
-            .recruit-hero h1 { font-size: 1.2rem; }
+            nav { padding: 0 8px; height: 44px; }
+            nav ul { gap: 16px; }
+            .container { padding: 24px 4px 8px 4px; }
+            .main-content h1 { font-size: 1.3rem; }
+            .recruit-form { width: 100%; padding: 18px 8px; position: static; margin-top: 32px; right: 0; left: 0; }
         }
     </style>
 </head>
-<body>
+<body class="force-white">
     <div class="header-bar">
-        <div class="logo"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo"></div>
+        <div class="logo"><a href="/index.html" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
         <div class="main-title">MetaRich Signal Group</div>
     </div>
-    <div class="recruit-hero">
-        <div style="text-align:center; margin-bottom: 18px;">
-            <span style="font-family: 'Montserrat', 'Inter', Arial, sans-serif; font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: 0.12em;">Adviser</span>
-        </div>
-        <div class="staff-intro">
-            <div class="staff-card staff-side">
-                <img class="staff-photo" src="https://randomuser.me/api/portraits/men/32.jpg" alt="프로필1">
-                <div class="staff-name">배진우</div>
-                <div class="staff-title">팀장</div>
-            </div>
-            <div class="staff-card staff-center">
-                <img class="staff-photo" src="https://randomuser.me/api/portraits/men/65.jpg" alt="프로필3">
-                <div class="staff-name">박주완</div>
-                <div class="staff-title">사업부장</div>
-            </div>
-            <div class="staff-card staff-side">
-                <img class="staff-photo" src="https://randomuser.me/api/portraits/women/44.jpg" alt="프로필2">
-                <div class="staff-name">채홍교</div>
-                <div class="staff-title">팀장</div>
-            </div>    
-        </div>
-        <h1>창의, 전문성, 열정으로 혁신을 선도하는<br>메타리치의 가족을 찾습니다</h1>
-        <div class="desc">업계 최고 대우, 효율적인 조직관리, 강력한 온라인 마케팅 지원, DB 제공 시스템까지!<br>신입&경력 모두 환영합니다. 지금 MetaRich에서 새로운 미래를 시작하세요.</div>
-        <div class="recruit-values">
-            <div class="recruit-value">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="최고 대우" style="width:48px;height:48px;margin-bottom:12px;">
-                <div class="recruit-value-title">업계 최고 대우</div>
-                <div>영업하기 좋은 회사, 메타리치!<br>최고의 대우와 근거 있는 자신감, 수수료 체계</div>
-            </div>
-            <div class="recruit-value">
-                <img src="https://cdn-icons-png.flaticon.com/512/1907/1907555.png" alt="수수료" style="width:48px;height:48px;margin-bottom:12px;">
-                <div class="recruit-value-title">근거 있는 자신감, 수수료</div>
-                <div>업계 최고 수준의 수수료와<br>투명한 보상 시스템</div>
-            </div>
-            <div class="recruit-value">
-                <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="조직관리" style="width:48px;height:48px;margin-bottom:12px;">
-                <div class="recruit-value-title">효율적 조직관리</div>
-                <div>사내 전산 시스템으로<br>효율적인 조직 관리 가능</div>
-            </div>
-            <div class="recruit-value">
-                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="노트북 아이콘" style="width:48px;height:48px;margin-bottom:12px;">
-                <div class="recruit-value-title">온라인 마케팅 지원</div>
-                <div>영업력 강화를 위한<br>온라인 마케팅 활동 지원</div>
-            </div>
-            <div class="recruit-value">
-                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="DB 제공 시스템" style="width:48px;height:48px;margin-bottom:12px;">
-                <div class="recruit-value-title">DB 제공 시스템</div>
-                <div>박람회, 홈쇼핑, 온라인·병원 연계 마케팅 등<br>고객이 자발적으로 찾아오는 양질의 시장 제공</div>
-            </div>
-        </div>
-        <a class="recruit-cta" href="mailto:recruit@meta-rich.co.kr">CA 입사지원 (신입 & 경력)</a>
-        
-        <div class="recruit-form" style="background: rgba(255,255,255,0.13); border-radius: 14px; padding: 32px 24px; margin-top: 32px; box-shadow: 0 2px 8px rgba(30,40,80,0.08);">
-            <h2 style="color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 1em; text-align: center;">온라인 지원서</h2>
-            <form id="recruitForm" method="POST" action="https://formspree.io/f/xkgznlwz">
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="applicant_name" style="display: block; margin-bottom: 5px; font-weight: 600; color: #fff;">이름</label>
-                    <input type="text" id="applicant_name" name="applicant_name" required style="width: 100%; padding: 10px 12px; border: 1.5px solid #3b82f6; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.10); color: #fff; transition: border 0.2s; box-sizing: border-box;">
+    <nav>
+        <ul>
+            <li><a href="about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
+            <li><a href="recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
+            <li><a href="support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="main-content">
+            <div class="highlight" style="margin-bottom:1.5em;">Adviser</div>
+            <div class="service-list" style="margin-bottom:2em;">
+                <div class="service-item">
+                    <img class="staff-photo" src="public/배진우.jpg" alt="프로필1" style="width:110px;height:110px;border-radius:50%;object-fit:cover;margin-bottom:14px;border:3px solid #fff;display:block;margin-left:auto;margin-right:auto;">
+                    <div class="staff-name" style="font-weight:700;color:#fff;font-size:1.3rem;margin-bottom:0.2em;text-align:center;">배진우</div>
+                    <div class="staff-title" style="color:#fff;font-size:1.15rem;opacity:1;font-weight:600;text-align:center;">팀장</div>
                 </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="applicant_phone" style="display: block; margin-bottom: 5px; font-weight: 600; color: #fff;">연락처</label>
-                    <input type="tel" id="applicant_phone" name="applicant_phone" required style="width: 100%; padding: 10px 12px; border: 1.5px solid #3b82f6; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.10); color: #fff; transition: border 0.2s; box-sizing: border-box;">
+                <div class="service-item">
+                    <img class="staff-photo" src="public/박주완.jpg" alt="프로필3" style="width:110px;height:110px;border-radius:50%;object-fit:cover;margin-bottom:14px;border:3px solid #fff;display:block;margin-left:auto;margin-right:auto;">
+                    <div class="staff-name" style="font-weight:700;color:#fff;font-size:1.3rem;margin-bottom:0.2em;text-align:center;">박주완</div>
+                    <div class="staff-title" style="color:#fff;font-size:1.15rem;opacity:1;font-weight:600;text-align:center;">사업부장</div>
                 </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="applicant_email" style="display: block; margin-bottom: 5px; font-weight: 600; color: #fff;">이메일</label>
-                    <input type="email" id="applicant_email" name="applicant_email" required style="width: 100%; padding: 10px 12px; border: 1.5px solid #3b82f6; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.10); color: #fff; transition: border 0.2s; box-sizing: border-box;">
+                <div class="service-item">
+                    <img class="staff-photo" src="public/채홍교.jpg" alt="프로필2" style="width:110px;height:110px;border-radius:50%;object-fit:cover;margin-bottom:14px;border:3px solid #fff;display:block;margin-left:auto;margin-right:auto;">
+                    <div class="staff-name" style="font-weight:700;color:#fff;font-size:1.3rem;margin-bottom:0.2em;text-align:center;">채홍교</div>
+                    <div class="staff-title" style="color:#fff;font-size:1.15rem;opacity:1;font-weight:600;text-align:center;">팀장</div>
                 </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="applicant_experience" style="display: block; margin-bottom: 5px; font-weight: 600; color: #fff;">경력 구분</label>
-                    <select id="applicant_experience" name="applicant_experience" required style="width: 100%; padding: 10px 12px; border: 1.5px solid #3b82f6; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.10); color: #fff; transition: border 0.2s; box-sizing: border-box;">
-                        <option value="">선택해주세요</option>
-                        <option value="신입">신입</option>
-                        <option value="경력">경력</option>
-                    </select>
+            </div>
+            <h1>창의, 전문성, 열정으로 혁신을 선도하는<br>메타리치의 가족을 찾습니다</h1>
+            <div class="subtitle" style="color:#fff;">업계 최고 대우, 효율적인 조직관리, 강력한 온라인 마케팅 지원, DB 제공 시스템까지!<br>신입&경력 모두 환영합니다. 지금 MetaRich에서 새로운 미래를 시작하세요.</div>
+            <div class="service-list">
+                <div class="service-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="최고 대우" style="width:48px;height:48px;margin-bottom:12px;">
+                    <div class="recruit-value-title" style="color:#fff;">업계 최고 대우</div>
+                    <div style="color:#fff;">영업하기 좋은 회사, 메타리치!<br>최고의 대우와 근거 있는 자신감, 수수료 체계</div>
                 </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="applicant_message" style="display: block; margin-bottom: 5px; font-weight: 600; color: #fff;">지원 동기 및 자기소개</label>
-                    <textarea id="applicant_message" name="applicant_message" required placeholder="지원 동기와 자기소개를 작성해주세요" style="width: 100%; padding: 10px 12px; border: 1.5px solid #3b82f6; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.10); color: #fff; transition: border 0.2s; box-sizing: border-box; resize: vertical; min-height: 80px;"></textarea>
+                <div class="service-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1907/1907555.png" alt="수수료" style="width:48px;height:48px;margin-bottom:12px;">
+                    <div class="recruit-value-title" style="color:#fff;">근거 있는 자신감, 수수료</div>
+                    <div style="color:#fff;">업계 최고 수준의 수수료와<br>투명한 보상 시스템</div>
                 </div>
-                <input type="hidden" name="form_type" value="recruit_application">
-                <button type="submit" style="width: 100%; background: linear-gradient(90deg, #3b82f6, #2563eb); color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 2px 8px rgba(30,40,80,0.10); transition: background 0.2s, transform 0.1s;">지원서 제출</button>
-            </form>
-        </div>
-        <!-- 성공 안내 모달 -->
-        <div id="successModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:9999; align-items:center; justify-content:center;">
-            <div style="background:#fff; color:#222; border-radius:16px; max-width:90vw; width:340px; padding:36px 24px 24px 24px; box-shadow:0 8px 32px rgba(30,40,80,0.18); text-align:center;">
-                <div style="font-size:1.15rem; font-weight:700; margin-bottom:18px;">성공적으로 제출되었습니다.<br>담당자가 빠르게 연락드리겠습니다.</div>
-                <button id="modalOkBtn" style="margin-top:18px; background:#3b82f6; color:#fff; border:none; border-radius:8px; padding:12px 32px; font-size:1rem; font-weight:700; cursor:pointer;">확인</button>
+                <div class="service-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="조직관리" style="width:48px;height:48px;margin-bottom:12px;">
+                    <div class="recruit-value-title" style="color:#fff;">효율적 조직관리</div>
+                    <div style="color:#fff;">사내 전산 시스템으로<br>효율적인 조직 관리 가능</div>
+                </div>
+                <div class="service-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="노트북 아이콘" style="width:48px;height:48px;margin-bottom:12px;">
+                    <div class="recruit-value-title" style="color:#fff;">온라인 마케팅 지원</div>
+                    <div style="color:#fff;">영업력 강화를 위한<br>온라인 마케팅 활동 지원</div>
+                </div>
+                <div class="service-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="DB 제공 시스템" style="width:48px;height:48px;margin-bottom:12px;">
+                    <div class="recruit-value-title" style="color:#fff;">DB 제공 시스템</div>
+                    <div style="color:#fff;">박람회, 홈쇼핑, 온라인·병원 연계 마케팅 등<br>고객이 자발적으로 찾아오는 양질의 시장 제공</div>
+                </div>
+            </div>
+            <div style="display:flex; justify-content:center; margin:32px 0;">
+                <button id="showRecruitFormBtn" class="recruit-cta" type="button" style="display:inline-block; background: linear-gradient(90deg, #3b82f6, #2563eb); color: #fff; font-weight: 700; font-size: 1.1rem; border-radius: 8px; padding: 16px 36px; text-decoration: none; box-shadow: 0 2px 12px rgba(30,40,80,0.10); transition: background 0.2s, color 0.2s; border:none; cursor:pointer;">CA 입사지원 (신입 & 경력)</button>
+            </div>
+            <div class="recruit-form" id="recruitFormWrap" style="max-width:302px; display:none;">
+                <h2>온라인 지원서</h2>
+                <form id="recruitForm" method="POST" action="https://formspree.io/f/xkgznlwz">
+                    <div class="form-group">
+                        <label for="applicant_name">이름</label>
+                        <input type="text" id="applicant_name" name="applicant_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant_phone">연락처</label>
+                        <input type="tel" id="applicant_phone" name="applicant_phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant_email">이메일</label>
+                        <input type="email" id="applicant_email" name="applicant_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant_experience">경력 구분</label>
+                        <select id="applicant_experience" name="applicant_experience" required>
+                            <option value="">선택해주세요</option>
+                            <option value="신입">신입</option>
+                            <option value="경력">경력</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant_message">지원 동기 및 자기소개</label>
+                        <textarea id="applicant_message" name="applicant_message" required placeholder="지원 동기와 자기소개를 작성해주세요"></textarea>
+                    </div>
+                    <input type="hidden" name="form_type" value="recruit_application">
+                    <button class="submit-btn" type="submit">지원서 제출</button>
+                </form>
             </div>
         </div>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var form = document.getElementById('recruitForm');
-            var modal = document.getElementById('successModal');
-            var okBtn = document.getElementById('modalOkBtn');
-            if(form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    var formData = new FormData(form);
-                    fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    })
-                    .then(function(response) {
-                        if(response.ok) {
-                            modal.style.display = 'flex';
-                        } else {
-                            alert('제출 중 오류가 발생했습니다. 다시 시도해주세요.');
-                        }
-                    })
-                    .catch(function() {
-                        alert('제출 중 오류가 발생했습니다. 다시 시도해주세요.');
-                    });
-                });
-            }
-            if(okBtn) {
-                okBtn.addEventListener('click', function() {
-                    window.location.href = '/index.html';
-                });
-            }
-        });
-        </script>
     </div>
+    <!-- 성공 안내 모달 -->
+    <div id="successModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:9999; align-items:center; justify-content:center;">
+        <div style="background:#fff; color:#222; border-radius:16px; max-width:90vw; width:340px; padding:36px 24px 24px 24px; box-shadow:0 8px 32px rgba(30,40,80,0.18); text-align:center;">
+            <div style="font-size:1.15rem; font-weight:700; margin-bottom:18px;">성공적으로 제출되었습니다.<br>담당자가 빠르게 연락드리겠습니다.</div>
+            <button id="modalOkBtn" style="margin-top:18px; background:#3b82f6; color:#fff; border:none; border-radius:8px; padding:12px 32px; font-size:1rem; font-weight:700; cursor:pointer;">확인</button>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('recruitForm');
+        var modal = document.getElementById('successModal');
+        var okBtn = document.getElementById('modalOkBtn');
+        var showBtn = document.getElementById('showRecruitFormBtn');
+        var formWrap = document.getElementById('recruitFormWrap');
+        if(showBtn && formWrap) {
+            showBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if(formWrap.style.display === 'none' || formWrap.style.display === '') {
+                    formWrap.style.display = 'block';
+                    showBtn.textContent = '입사지원 닫기';
+                } else {
+                    formWrap.style.display = 'none';
+                    showBtn.textContent = 'CA 입사지원 (신입 & 경력)';
+                }
+            });
+        }
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var formData = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function(response) {
+                    if(response.ok) {
+                        modal.style.display = 'flex';
+                        formWrap.style.display = 'none';
+                        showBtn.textContent = 'CA 입사지원 (신입 & 경력)';
+                    } else {
+                        alert('제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+                    }
+                })
+                .catch(function() {
+                    alert('제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+                });
+            });
+        }
+        if(okBtn) {
+            okBtn.addEventListener('click', function() {
+                window.location.href = '/index.html';
+            });
+        }
+    });
+    </script>
 </body>
 </html> 
