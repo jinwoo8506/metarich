@@ -42,10 +42,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            position: sticky;
+            top: 0;
             height: 80px;
-            box-shadow: var(--shadow);
-            z-index: 10;
+            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
+            z-index: 1000;
         }
         .logo {
             position: absolute;
@@ -73,8 +74,19 @@
             display: flex;
             align-items: center;
             height: 56px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid #e5e7eb;
             justify-content: center;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            transition: background 0.25s, color 0.25s;
+        }
+        nav.scrolled {
+            background: rgba(34,44,54,0.95);
+            color: #fff;
+        }
+        nav.scrolled a {
+            color: #fff !important;
         }
         nav ul {
             list-style: none;
@@ -84,15 +96,72 @@
             gap: 36px;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         nav li {
             font-size: 1.05rem;
             font-weight: 500;
             cursor: pointer;
             transition: color 0.2s;
+            position: relative;
         }
         nav li:hover {
             color: #fff;
+        }
+        .branch-dropdown {
+            position: relative;
+        }
+        .branch-dropbtn {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0 8px;
+            display: inline-block;
+        }
+        .branch-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 120%;
+            background: #fff;
+            min-width: 160px;
+            box-shadow: 0 4px 16px rgba(30,40,80,0.10);
+            border-radius: 10px;
+            z-index: 100;
+            flex-direction: column;
+            padding: 8px 0;
+            transition: all 0.25s cubic-bezier(.4,0,.2,1);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .branch-dropdown.open .branch-dropdown-content {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+            top: 100%;
+        }
+        .branch-dropdown-content li {
+            padding: 0;
+            margin: 0;
+        }
+        .branch-dropdown-content a {
+            color: #1a237e;
+            padding: 8px 24px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background 0.18s;
+        }
+        .branch-dropdown-content a:hover {
+            background: #e3f2fd;
+            color: #d2691e;
+        }
+        @media (max-width: 900px) {
+            .branch-dropdown-content {
+                min-width: 120px;
+            }
         }
         .container {
             display: flex;
@@ -230,6 +299,56 @@
             .main-content h1 { font-size: 1.3rem; }
             .recruit-form { width: 100%; padding: 18px 8px; position: static; margin-top: 32px; right: 0; left: 0; }
         }
+        .staff-intro {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 2.5em;
+            align-items: flex-start;
+            flex-direction: row;
+        }
+        .staff-card {
+            flex: 1 1 180px;
+            min-width: 160px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 32px 18px 24px 18px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(30,40,80,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .staff-photo {
+            width: 300px;
+            height: 533px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 24px;
+            border: 3px solid #fff;
+            background: #eee;
+        }
+        .staff-name {
+            font-weight: 900;
+            color: #222;
+            font-size: 2.6rem;
+            margin-bottom: 0.2em;
+        }
+        .staff-title {
+            color: #2563eb;
+            font-size: 2.3rem;
+            font-weight: 900;
+            margin-bottom: 0.5em;
+        }
+        .adviser-title {
+            font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 0.12em;
+            text-align: center;
+            margin-bottom: 18px;
+        }
     </style>
 </head>
 <body class="force-white">
@@ -239,7 +358,7 @@
     </div>
     <nav>
         <ul>
-            <li><a href="index.html" style="color:inherit;text-decoration:none;">홈으로</a></li>
+            <li><a href="../index.html" style="color:inherit;text-decoration:none;">홈으로</a></li>
             <li><a href="about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
             <li><a href="recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
             <li><a href="support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
@@ -247,22 +366,26 @@
     </nav>
     <div class="container">
         <div class="main-content">
-            <div class="highlight" style="margin-bottom:1.5em;">Adviser</div>
+            <div class="recruit-hero">
+                <div class="adviser-title">Adviser</div>
+            </div>
             <div class="service-list" style="margin-bottom:2em; padding-top:40px; padding-bottom:40px; min-height:264px;">
-                <div class="service-item" style="padding-top:32px; padding-bottom:32px;">
-                    <img class="staff-photo" src="배진우.jpg" alt="프로필1" style="width:165px;height:165px;border-radius:50%;object-fit:cover;object-position:center top;margin-bottom:18px;border:3px solid #fff;display:block;margin-left:auto;margin-right:auto;">
-                    <div class="staff-name" style="font-weight:700;color:#fff;font-size:1.3rem;margin-bottom:0.2em;text-align:center;">배진우</div>
-                    <div class="staff-title" style="color:#fff;font-size:1.15rem;opacity:1;font-weight:600;text-align:center;">팀장</div>
-                </div>
-                <div class="service-item" style="padding-top:32px; padding-bottom:32px;">
-                    <img class="staff-photo" src="박주완.jpg" alt="프로필3" style="width:165px;height:165px;border-radius:50%;object-fit:cover;object-position:center top;margin-bottom:18px;border:3px solid #fff;display:block;margin-left:auto;margin-right:auto;">
-                    <div class="staff-name" style="font-weight:700;color:#fff;font-size:1.3rem;margin-bottom:0.2em;text-align:center;">박주완</div>
-                    <div class="staff-title" style="color:#fff;font-size:1.15rem;opacity:1;font-weight:600;text-align:center;">사업부장</div>
-                </div>
-                <div class="service-item" style="padding-top:32px; padding-bottom:32px;">
-                    <img class="staff-photo" src="채홍교.jpg" alt="프로필2" style="width:165px;height:165px;border-radius:50%;object-fit:cover;object-position:center top;margin-bottom:18px;border:3px solid #fff;display:block;margin-left:auto;margin-right:auto;">
-                    <div class="staff-name" style="font-weight:700;color:#fff;font-size:1.3rem;margin-bottom:0.2em;text-align:center;">채홍교</div>
-                    <div class="staff-title" style="color:#fff;font-size:1.15rem;opacity:1;font-weight:600;text-align:center;">팀장</div>
+                <div class="staff-intro">
+                    <div class="staff-card">
+                        <img class="staff-photo" src="박주완.jpg" alt="박주완">
+                        <div class="staff-name">박주완</div>
+                        <div class="staff-title">사업부장</div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="배진우.jpg" alt="배진우">
+                        <div class="staff-name">배진우</div>
+                        <div class="staff-title">팀장</div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="채홍교.jpg" alt="채홍교">
+                        <div class="staff-name">채홍교</div>
+                        <div class="staff-title">팀장</div>
+                    </div>
                 </div>
             </div>
             <h1>창의, 전문성, 열정으로 혁신을 선도하는<br>메타리치의 가족을 찾습니다</h1>
@@ -299,7 +422,7 @@
             </div>
             <div class="recruit-form" id="recruitFormWrap" style="max-width:302px; display:none;">
                 <h2>온라인 지원서</h2>
-                <form id="recruitForm" method="POST" action="https://formspree.io/f/xkgznlwz">
+                <form id="recruitForm" method="POST" action="https://formspree.io/f/xrblgndz" id="recruit-bottom" style="max-width:480px;margin:0 auto;">
                     <div class="form-group">
                         <label for="applicant_name">이름</label>
                         <input type="text" id="applicant_name" name="applicant_name" required>
@@ -384,6 +507,28 @@
                 window.location.href = '/index.html';
             });
         }
+        // 지점안내 드롭다운
+        var branchDropdown = document.querySelector('.branch-dropdown');
+        var branchBtn = document.querySelector('.branch-dropbtn');
+        if(branchDropdown && branchBtn) {
+            branchBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                branchDropdown.classList.toggle('open');
+            });
+            document.addEventListener('click', function(e) {
+                if(branchDropdown.classList.contains('open')) {
+                    branchDropdown.classList.remove('open');
+                }
+            });
+        }
+        var nav = document.querySelector('nav');
+        window.addEventListener('scroll', function() {
+            if(window.scrollY > 10) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
     });
     </script>
 </body>

@@ -15,14 +15,15 @@
         }
         .header-bar {
             background: #fff;
-            color: #2563eb;
+            color: #222;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            position: sticky;
+            top: 0;
             height: 80px;
             box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            z-index: 10;
+            z-index: 1000;
         }
         .logo {
             position: absolute;
@@ -213,7 +214,7 @@
             font-size: 1.05rem;
         }
         nav {
-            background: transparent;
+            background: #fff;
             color: #222 !important;
             padding: 0 40px;
             display: flex;
@@ -221,6 +222,12 @@
             height: 56px;
             border-bottom: 1px solid #e5e7eb;
             justify-content: center;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+        }
+        nav a {
+            color: #222 !important;
         }
         nav ul {
             list-style: none;
@@ -230,22 +237,74 @@
             gap: 36px;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         nav li {
             font-size: 1.05rem;
             font-weight: 500;
             cursor: pointer;
             transition: color 0.2s;
+            position: relative;
         }
-        nav a {
-            color: #222 !important;
+        nav li:hover {
+            color: #fff;
         }
-        nav li:hover, nav a:hover {
-            color: #3b82f6 !important;
+        .branch-dropdown {
+            position: relative;
+        }
+        .branch-dropbtn {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0 8px;
+            display: inline-block;
+        }
+        .branch-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 120%;
+            background: #fff;
+            min-width: 160px;
+            box-shadow: 0 4px 16px rgba(30,40,80,0.10);
+            border-radius: 10px;
+            z-index: 100;
+            flex-direction: column;
+            padding: 8px 0;
+            transition: all 0.25s cubic-bezier(.4,0,.2,1);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .branch-dropdown.open .branch-dropdown-content {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+            top: 100%;
+        }
+        .branch-dropdown-content li {
+            padding: 0;
+            margin: 0;
+        }
+        .branch-dropdown-content a {
+            color: #1a237e;
+            padding: 12px 24px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background 0.18s;
+        }
+        .branch-dropdown-content a:hover {
+            background: #e3f2fd;
+            color: #d2691e;
         }
         @media (max-width: 900px) {
             .section { padding: 24px 6px 24px 6px; }
             .values, .culture-list { flex-direction: column; gap: 16px; }
+            .branch-dropdown-content {
+                min-width: 120px;
+            }
         }
         @media (max-width: 600px) {
             .header-bar { height: 60px; }
@@ -274,7 +333,7 @@
             <img class="hero-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=400&h=400&q=80" alt="MetaRich Team">
             <div class="hero-title">대한민국 대표 보험 GA, MetaRich</div>
             <div class="hero-desc">33개 보험사와 함께하는 전문성과 신뢰, 그리고 성장의 기회.<br>고객과 함께, 미래를 설계하는 최고의 동료를 기다립니다.</div>
-            <a class="hero-cta" href="/recruit.html">지원하기</a>
+            <a class="hero-cta" href="/recruit.html#recruit-bottom">지원하기</a>
         </div>
     </div>
     <div class="section">
@@ -371,5 +430,23 @@
     <div style="text-align:center;margin-bottom:48px;">
         <a href="../index.html" class="back-link">← 메인페이지로 돌아가기</a>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 지점안내 드롭다운
+            var branchDropdown = document.querySelector('.branch-dropdown');
+            var branchBtn = document.querySelector('.branch-dropbtn');
+            if(branchDropdown && branchBtn) {
+                branchBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    branchDropdown.classList.toggle('open');
+                });
+                document.addEventListener('click', function(e) {
+                    if(branchDropdown.classList.contains('open')) {
+                        branchDropdown.classList.remove('open');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html> 

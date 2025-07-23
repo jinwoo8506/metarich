@@ -42,10 +42,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            position: sticky;
+            top: 0;
             height: 80px;
             box-shadow: var(--shadow);
-            z-index: 10;
+            z-index: 1000;
         }
         .logo {
             position: absolute;
@@ -75,6 +76,17 @@
             height: 56px;
             border-bottom: 1px solid var(--border);
             justify-content: center;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            transition: background 0.25s, color 0.25s;
+        }
+        nav.scrolled {
+            background: rgba(34,44,54,0.95);
+            color: #fff;
+        }
+        nav.scrolled a {
+            color: #fff !important;
         }
         nav ul {
             list-style: none;
@@ -84,15 +96,72 @@
             gap: 36px;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         nav li {
             font-size: 1.05rem;
             font-weight: 500;
             cursor: pointer;
             transition: color 0.2s;
+            position: relative;
         }
         nav li:hover {
             color: #fff;
+        }
+        .branch-dropdown {
+            position: relative;
+        }
+        .branch-dropbtn {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0 8px;
+            display: inline-block;
+        }
+        .branch-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 120%;
+            background: #fff;
+            min-width: 160px;
+            box-shadow: 0 4px 16px rgba(30,40,80,0.10);
+            border-radius: 10px;
+            z-index: 100;
+            flex-direction: column;
+            padding: 8px 0;
+            transition: all 0.25s cubic-bezier(.4,0,.2,1);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .branch-dropdown.open .branch-dropdown-content {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+            top: 100%;
+        }
+        .branch-dropdown-content li {
+            padding: 0;
+            margin: 0;
+        }
+        .branch-dropdown-content a {
+            color: #1a237e;
+            padding: 12px 24px;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background 0.18s;
+        }
+        .branch-dropdown-content a:hover {
+            background: #e3f2fd;
+            color: #d2691e;
+        }
+        @media (max-width: 900px) {
+            .branch-dropdown-content {
+                min-width: 120px;
+            }
         }
         .container {
             display: flex;
@@ -271,9 +340,9 @@
     <nav>
         <ul>
             <li><a href="/index.html" style="color:inherit;text-decoration:none;">홈으로</a></li>
-            <li><a href="/about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
-            <li><a href="/recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
-            <li><a href="/support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
+            <li><a href="public/about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
+            <li><a href="public/recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
+            <li><a href="public/support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -327,5 +396,31 @@
             Copyright ⓒ 2023 메타리치 All rights reserved.
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 지점안내 드롭다운
+            var branchDropdown = document.querySelector('.branch-dropdown');
+            var branchBtn = document.querySelector('.branch-dropbtn');
+            if(branchDropdown && branchBtn) {
+                branchBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    branchDropdown.classList.toggle('open');
+                });
+                document.addEventListener('click', function(e) {
+                    if(branchDropdown.classList.contains('open')) {
+                        branchDropdown.classList.remove('open');
+                    }
+                });
+            }
+            var nav = document.querySelector('nav');
+            window.addEventListener('scroll', function() {
+                if(window.scrollY > 10) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
