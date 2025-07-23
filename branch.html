@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지점안내 | MetaRich Signal Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --bg: #222c36;
+            --surface: #fff;
+            --text: #222;
+            --muted: #b3c0e0;
+            --border: #e5e7eb;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(30,40,80,0.08);
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans KR', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.4;
+        }
+        .header-bar {
+            background: #fff;
+            color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            height: 80px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+        .logo {
+            position: absolute;
+            left: 40px;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #222;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+        }
+        .main-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-align: center;
+            width: 100%;
+        }
+        nav {
+            background: transparent;
+            color: #f3f6fa;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            height: 56px;
+            border-bottom: 1px solid var(--border);
+            justify-content: center;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            transition: background 0.25s, color 0.25s;
+        }
+        nav.scrolled {
+            background: rgba(34,44,54,0.95);
+            color: #fff;
+        }
+        nav.scrolled a {
+            color: #fff !important;
+        }
+        nav a {
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+        nav a.about-link {
+            color: #fff !important;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 36px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        nav li {
+            font-size: 1.05rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s;
+            position: relative;
+        }
+        nav li:hover {
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            nav ul { gap: 18px; }
+        }
+        .branch-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #2563eb;
+            margin: 60px 0 32px 0;
+            text-align: center;
+            letter-spacing: 0.12em;
+        }
+        .branches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+        }
+        .branch-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
+            padding: 32px 24px 24px 24px;
+            width: 350px;
+            max-width: 95vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .branch-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.7em;
+        }
+        .branch-address {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 1.2em;
+            text-align: center;
+        }
+        .branch-map {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            background: #e3eafc;
+            margin-bottom: 0.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .branch-map-placeholder {
+            color: #2563eb;
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+        @media (max-width: 900px) {
+            .branches { flex-direction: column; gap: 24px; align-items: center; }
+            .branch-card { width: 98vw; max-width: 98vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <div class="logo"><a href="/index.html" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
+        <div class="main-title">MetaRich Signal Group</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">홈으로</a></li>
+        <li><a href="/about.html" class="about-link">회사소개</a></li>
+        <li><a href="/recruit.html">인재채용</a></li>
+        <li><a href="/support.html">고객지원</a></li>
+        <li><a href="/branch/index.html">지점안내</a></li>
+      </ul>
+    </nav>
+    <div class="branch-title">지점안내</div>
+    <div class="branches">
+        <div class="branch-card">
+            <div class="branch-name">원주지점</div>
+            <div class="branch-address">강원도 원주시 능라동길81,601호</div>
+            <div class="branch-map"><div class="branch-map-placeholder">지도 위치(임베드) 자리</div></div>
+        </div>
+        <div class="branch-card">
+            <div class="branch-name">춘천지점</div>
+            <div class="branch-address">강원도 춘천시 중앙로 123</div>
+            <div class="branch-map"><div class="branch-map-placeholder">지도 위치(임베드) 자리</div></div>
+        </div>
+        <div class="branch-card">
+            <div class="branch-name">성남지점</div>
+            <div class="branch-address">경기도 성남시 분당구 판교로 242</div>
+            <div class="branch-map"><div class="branch-map-placeholder">지도 위치(임베드) 자리</div></div>
+        </div>
+        <div class="branch-card">
+            <div class="branch-name">여주지점</div>
+            <div class="branch-address">경기도 여주시 세종로 77</div>
+            <div class="branch-map"><div class="branch-map-placeholder">지도 위치(임베드) 자리</div></div>
+        </div>
+        <div class="branch-card">
+            <div class="branch-name">이천지점</div>
+            <div class="branch-address">경기도 이천시 부악로 12</div>
+            <div class="branch-map"><div class="branch-map-placeholder">지도 위치(임베드) 자리</div></div>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var nav = document.querySelector('nav');
+        window.addEventListener('scroll', function() {
+            if(window.scrollY > 10) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    });
+    </script>
+</body>
+</html> 
