@@ -6,11 +6,23 @@
     <title>고객지원 | MetaRich Signal Group</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --bg: #222c36;
+            --surface: #fff;
+            --text: #222;
+            --muted: #b3c0e0;
+            --border: #e5e7eb;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(30,40,80,0.08);
+        }
+        html, body { height: 100%; }
         body {
             font-family: 'Inter', 'Noto Sans KR', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f5ede6;
+            background: var(--bg);
             color: #fff;
         }
         body::before {
@@ -18,9 +30,9 @@
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             z-index: -1;
-            background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
             background-size: cover;
-            opacity: 0.3;
+            opacity: 0.4;
         }
         .header-bar {
             background: #fff;
@@ -28,10 +40,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            position: sticky;
+            top: 0;
             height: 80px;
             box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            z-index: 10;
+            z-index: 1000;
         }
         .logo {
             position: absolute;
@@ -58,46 +71,45 @@
             box-shadow: 0 4px 24px rgba(30,40,80,0.08);
             padding: 48px 32px 40px 32px;
             text-align: center;
-            color: #222;
+            color: #1a237e;
         }
         .support-hero h1 {
             font-family: 'Montserrat', 'Inter', 'Noto Sans KR', Arial, sans-serif;
             font-size: 2.2rem;
             font-weight: 900;
-            color: #d2691e;
+            color: #1a237e;
             margin-bottom: 0.5em;
             letter-spacing: 0.12em;
         }
         .support-hero .desc {
             font-size: 1.2rem;
-            color: #444;
+            color: #1a237e;
             margin-bottom: 2em;
-            text-shadow: 0 2px 8px rgba(255,255,255,0.12), 0 0 2px #fff;
         }
         .support-section {
-            background: #bbdefb;
+            background: rgba(34,44,54,0.82);
             border-radius: 12px;
             margin: 32px 0;
             padding: 32px 24px 24px 24px;
-            color: #222;
+            color: #fff;
             box-shadow: 0 2px 8px rgba(30,40,80,0.06);
             text-align: left;
         }
         .support-section h2 {
-            color: #d2691e;
+            color: #f3f6fa;
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 0.7em;
         }
         .support-section ul {
             padding-left: 1.2em;
-            color: #333;
+            color: #fff;
         }
         .support-link {
             display: inline-block;
             margin-top: 18px;
             color: #fff;
-            background: #1a237e;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
             padding: 12px 28px;
             border-radius: 8px;
             font-weight: 700;
@@ -107,18 +119,19 @@
             transition: background 0.2s;
         }
         .support-link:hover {
-            background: #d2691e;
+            background: #2563eb;
         }
         .claim-form {
-            background: #bbdefb;
+            background: #ffffff;
             border-radius: 12px;
             margin: 32px 0;
             padding: 32px 24px 24px 24px;
             color: #222;
-            box-shadow: 0 2px 8px rgba(30,40,80,0.06);
+            box-shadow: 0 4px 24px rgba(30,40,80,0.12);
+            border: 1px solid #e5e7eb;
         }
         .claim-form h2 {
-            color: #d2691e;
+            color: #1a237e;
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 1em;
@@ -176,9 +189,22 @@
             display: flex;
             align-items: center;
             height: 56px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border);
             justify-content: center;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            transition: background 0.25s, color 0.25s;
         }
+        nav.scrolled {
+            background: rgba(34,44,54,0.95);
+            color: #fff;
+        }
+        nav.scrolled a {
+            color: #fff !important;
+        }
+        nav a { color: #fff !important; text-decoration: none !important; }
+        nav a.about-link { color: #fff !important; }
         nav ul {
             list-style: none;
             margin: 0;
@@ -211,22 +237,37 @@
 </head>
 <body>
     <div class="header-bar">
-        <div class="logo"><a href="../index.html" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
+        <div class="logo"><a href="/index.html" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
         <div class="main-title">MetaRich Signal Group</div>
     </div>
     <nav>
       <ul>
-        <li><a href="../index.html" style="color:inherit;text-decoration:none;">홈으로</a></li>
-        <li><a href="about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
-        <li><a href="recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
-        <li><a href="support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
+        <li><a href="/index.html" style="color:inherit;text-decoration:none;">홈으로</a></li>
+        <li><a href="/public/about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
+        <li><a href="/public/recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
+        <li><a href="/public/support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
+        <li><a href="/public/branch.html" style="color:inherit;text-decoration:none;">지점안내</a></li>
       </ul>
     </nav>
     <div class="support-hero">
         <h1>고객지원</h1>
         <div class="desc">고객님의 행복과 권익 보호를 위해<br>따뜻하고 든든한 금융서비스를 제공합니다.</div>
         
-        <div class="claim-form" style="max-width:60%;margin:0 auto;">
+            <div class="support-section" style="text-align:center;">
+                <h2>숨은 보험금 찾기</h2>
+                <p>금융감독원 통합 조회 서비스에서 숨은 보험금을 안전하게 조회하세요.</p>
+                <a class="support-link" href="https://cont.insure.or.kr/cont_web/intro.do" target="_blank" rel="noopener noreferrer">숨은 보험금 찾기 바로가기</a>
+                <div style="margin-top:12px; font-size:0.95rem; color:#b3c0e0;">공식 서비스로 이동합니다</div>
+                <div style="margin-top:14px; text-align:left; color:#fff;">
+                    <ul style="margin:8px 0 0 0; padding-left:1.2em;">
+                        <li>외부 공식 사이트로 이동하며, 본 사이트는 개인정보를 수집하지 않습니다.</li>
+                        <li>주민등록번호, 공동인증서 등 민감 정보는 반드시 <b>공식 사이트</b>에서만 입력하세요.</li>
+                        <li>일부 조회는 본인인증이 필요할 수 있으며, 팝업 차단 해제 후 이용하세요.</li>
+                    </ul>
+                </div>
+            </div>
+        
+                    <div class="claim-form" style="max-width:640px;margin:0 auto;width:100%;">
             <h2>보험금 청구 신청</h2>
             <form id="claimForm" method="POST" action="https://formspree.io/f/xrblgndz">
                 <div class="form-group">
@@ -289,6 +330,20 @@
             if(okBtn) {
                 okBtn.addEventListener('click', function() {
                     window.location.href = '/index.html';
+                });
+            }
+        });
+        </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var nav = document.querySelector('nav');
+            if(nav) {
+                window.addEventListener('scroll', function() {
+                    if(window.scrollY > 10) {
+                        nav.classList.add('scrolled');
+                    } else {
+                        nav.classList.remove('scrolled');
+                    }
                 });
             }
         });
