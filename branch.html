@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>지점안내 | MetaRich Signal Group</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -177,6 +178,19 @@
             .branches { flex-direction: column; gap: 24px; align-items: center; }
             .branch-card { width: 98vw; max-width: 98vw; }
         }
+        @media (max-width: 600px) {
+            .header-bar { height: 60px; }
+            .logo { left: 16px; }
+            .main-title { font-size: 1.1rem; }
+            nav { padding: 0 8px; height: 44px; }
+            nav ul { gap: 16px; }
+            .branch-title { font-size: 1.4rem; margin: 32px 0 18px 0; }
+            .branch-card { padding: 20px 14px 16px 14px; }
+            .branch-name { font-size: 1.2rem; }
+            .branch-address { font-size: 0.95rem; }
+            .branch-map { height: 180px; }
+        }
+        html { -webkit-text-size-adjust: 100%; }
     </style>
 </head>
 <body>

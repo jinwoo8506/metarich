@@ -10,17 +10,17 @@
             font-family: 'Inter', 'Noto Sans KR', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #222c36;
-            color: #222;
+            background: #f5ede6;
+            color: #fff;
         }
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             z-index: -1;
-            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
             background-size: cover;
-            opacity: 0.4;
+            opacity: 0.3;
         }
         .header-bar {
             background: #fff;
@@ -28,11 +28,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: sticky;
-            top: 0;
+            position: relative;
             height: 80px;
             box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            z-index: 1000;
+            z-index: 10;
         }
         .logo {
             position: absolute;
@@ -54,7 +53,7 @@
         .support-hero {
             max-width: 900px;
             margin: 60px auto 0 auto;
-            background: #fff;
+            background: #e3f2fd;
             border-radius: 18px;
             box-shadow: 0 4px 24px rgba(30,40,80,0.08);
             padding: 48px 32px 40px 32px;
@@ -65,7 +64,7 @@
             font-family: 'Montserrat', 'Inter', 'Noto Sans KR', Arial, sans-serif;
             font-size: 2.2rem;
             font-weight: 900;
-            color: #2563eb;
+            color: #d2691e;
             margin-bottom: 0.5em;
             letter-spacing: 0.12em;
         }
@@ -76,29 +75,29 @@
             text-shadow: 0 2px 8px rgba(255,255,255,0.12), 0 0 2px #fff;
         }
         .support-section {
-            background: rgba(34,44,54,0.82);
+            background: #bbdefb;
             border-radius: 12px;
             margin: 32px 0;
             padding: 32px 24px 24px 24px;
-            color: #fff;
+            color: #222;
             box-shadow: 0 2px 8px rgba(30,40,80,0.06);
             text-align: left;
         }
         .support-section h2 {
-            color: #3b82f6;
+            color: #d2691e;
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 0.7em;
         }
         .support-section ul {
             padding-left: 1.2em;
-            color: #f3f6fa;
+            color: #333;
         }
         .support-link {
             display: inline-block;
             margin-top: 18px;
             color: #fff;
-            background: #2563eb;
+            background: #1a237e;
             padding: 12px 28px;
             border-radius: 8px;
             font-weight: 700;
@@ -108,10 +107,10 @@
             transition: background 0.2s;
         }
         .support-link:hover {
-            background: #3b82f6;
+            background: #d2691e;
         }
         .claim-form {
-            background: rgba(255,255,255,0.5);
+            background: #bbdefb;
             border-radius: 12px;
             margin: 32px 0;
             padding: 32px 24px 24px 24px;
@@ -119,7 +118,7 @@
             box-shadow: 0 2px 8px rgba(30,40,80,0.06);
         }
         .claim-form h2 {
-            color: #3b82f6;
+            color: #d2691e;
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 1em;
@@ -132,7 +131,7 @@
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
-            color: #f3f6fa;
+            color: #333;
         }
         .form-group input, .form-group textarea {
             width: 100%;
@@ -141,7 +140,7 @@
             border-radius: 8px;
             font-size: 1rem;
             background: #fff;
-            color: #222;
+            color: #333;
             transition: border 0.2s;
             box-sizing: border-box;
         }
@@ -179,21 +178,6 @@
             height: 56px;
             border-bottom: 1px solid #e5e7eb;
             justify-content: center;
-            position: sticky;
-            top: 80px;
-            z-index: 999;
-            transition: background 0.25s, color 0.25s;
-        }
-        nav.scrolled {
-            background: rgba(34,44,54,0.95);
-            color: #fff;
-        }
-        nav a {
-            color: #fff !important;
-            text-decoration: none !important;
-        }
-        nav a.about-link {
-            color: #fff !important;
         }
         nav ul {
             list-style: none;
@@ -203,361 +187,25 @@
             gap: 36px;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
         nav li {
             font-size: 1.05rem;
             font-weight: 500;
             cursor: pointer;
             transition: color 0.2s;
-            position: relative;
         }
         nav li:hover {
             color: #fff;
         }
-        .branch-dropdown {
-            position: relative;
-        }
-        .branch-dropbtn {
-            color: inherit;
-            text-decoration: none;
-            font-weight: 500;
-            cursor: pointer;
-            padding: 0 8px;
-            display: inline-block;
-        }
-        .branch-dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 120%;
-            background: #fff;
-            min-width: 160px;
-            box-shadow: 0 4px 16px rgba(30,40,80,0.10);
-            border-radius: 10px;
-            z-index: 100;
-            flex-direction: column;
-            padding: 8px 0;
-            transition: all 0.25s cubic-bezier(.4,0,.2,1);
-            opacity: 0;
-            pointer-events: none;
-        }
-        .branch-dropdown.open .branch-dropdown-content {
-            display: flex;
-            opacity: 1;
-            pointer-events: auto;
-            top: 100%;
-        }
-        .branch-dropdown-content li {
-            padding: 0;
-            margin: 0;
-        }
-        .branch-dropdown-content a {
-            color: #1a237e;
-            padding: 12px 24px;
-            display: block;
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 6px;
-            transition: background 0.18s;
-        }
-        .branch-dropdown-content a:hover {
-            background: #e3f2fd;
-            color: #d2691e;
-        }
-        .support-flex {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            align-items: flex-start;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        .claim-form-stack {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .dormant-sites-section {
-            background: #f3f6fa;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            padding: 28px 18px 20px 18px;
-            margin: 38px auto 0 auto;
-            width: 378px;
-            max-width: 378px;
-            text-align: center;
-        }
-        .claim-form-section {
-            background: #f3f6fa !important;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            padding: 32px 18px 24px 18px;
-            width: 378px;
-            min-width: 220px;
-            height: 672px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            order: 2;
-        }
-        .dormant-insurance-section {
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            padding: 40px 24px 32px 24px;
-            flex: 1 1 320px;
-            min-width: 260px;
-            max-width: 520px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            order: 1;
-        }
         @media (max-width: 900px) {
             .support-hero { padding: 24px 6px 24px 6px; }
             .support-section { padding: 18px 6px 18px 6px; }
-            .branch-dropdown-content {
-                min-width: 120px;
-            }
-            .support-flex {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .claim-form-section, .dormant-insurance-section, .dormant-sites-section {
-                width: 100% !important;
-                min-width: 0;
-                max-width: 100%;
-                height: auto;
-                order: unset;
-            }
         }
         @media (max-width: 600px) {
             .header-bar { height: 60px; }
             .logo { left: 12px; }
             .main-title { font-size: 1.1rem; }
             .support-hero h1 { font-size: 1.2rem; }
-        }
-        .support-bottom-sections {
-            display: flex;
-            flex-direction: column;
-            gap: 66px;
-            align-items: center;
-            justify-content: center;
-            margin: 60px auto 48px auto;
-            max-width: 900px;
-        }
-        .support-bottom-card {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(30,40,80,0.08);
-            padding: 70px 62px 62px 62px;
-            width: calc(100% + 38px);
-            max-width: 638px;
-            color: #222;
-            text-align: center;
-        }
-        .support-bottom-card h2 {
-            color: #2563eb;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.7em;
-        }
-        .support-bottom-card ul {
-            padding-left: 1.2em;
-            color: #333;
-            text-align: left;
-            margin: 0 auto 0 auto;
-            display: inline-block;
-        }
-        .support-bottom-card a.support-link {
-            display: inline-block;
-            margin-top: 18px;
-            color: #fff;
-            background: #2563eb;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.05rem;
-            box-shadow: 0 2px 8px rgba(30,40,80,0.10);
-            transition: background 0.2s;
-        }
-        .support-bottom-card a.support-link:hover {
-            background: #3b82f6;
-        }
-        @media (max-width: 700px) {
-            .support-bottom-card {
-                padding: 18px 6px 18px 6px;
-            }
-        }
-        .form-group.privacy-agree {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 18px;
-            gap: 18px;
-        }
-        .form-group.privacy-agree input[type="checkbox"] {
-            margin-right: 12px;
-            transform: scale(1.8);
-        }
-        .form-group.privacy-agree label {
-            font-size: 0.91rem;
-            font-weight: 700;
-            white-space: nowrap;
-            color: #222;
-        }
-        .support-main-flex {
-            display: flex;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 48px auto 0 auto;
-            padding: 0 16px;
-            align-items: stretch;
-            justify-content: center;
-        }
-        .support-info-card {
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            padding: 48px 36px 40px 36px;
-            flex: 1 1 480px;
-            min-width: 320px;
-            max-width: 600px;
-            min-height: 540px;
-        }
-        .support-info-card h1 {
-            font-size: 2.1rem;
-            font-weight: 900;
-            color: #2563eb;
-            margin-bottom: 0.7em;
-            letter-spacing: 0.12em;
-        }
-        .support-info-card h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2563eb;
-            margin: 2.2em 0 0.7em 0;
-        }
-        .support-info-card .desc {
-            font-size: 1.15rem;
-            color: #333;
-            margin-bottom: 1.5em;
-        }
-        .support-info-card .step-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            margin-bottom: 2em;
-        }
-        .support-info-card .step {
-            flex: 1 1 180px;
-            min-width: 160px;
-            background: #f3f6fa;
-            border-radius: 12px;
-            padding: 22px 14px;
-            text-align: center;
-            transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
-            cursor: pointer;
-        }
-        .support-info-card .step:hover {
-            transform: scale(1.07);
-            box-shadow: 0 8px 32px rgba(30,40,80,0.13);
-            background: #e3eafc;
-        }
-        .support-info-card .step-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #2563eb;
-            margin-bottom: 0.5em;
-        }
-        .support-info-card .site-links {
-            font-size: 1.05rem;
-            color: #444;
-            margin-bottom: 1.5em;
-            text-align: center;
-        }
-        .support-info-card .site-links a {
-            color: #2563eb;
-            text-decoration: underline;
-            margin: 0 6px;
-        }
-        .support-info-card .notice {
-            font-size: 1.05rem;
-            color: #444;
-            text-align: center;
-        }
-        .claim-form-sticky {
-            position: static;
-            width: 370px;
-            max-width: 100vw;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        @media (max-width: 1200px) {
-            .claim-form-sticky {
-                right: 0;
-            }
-        }
-        @media (max-width: 1000px) {
-            .support-main-flex {
-                flex-direction: column;
-                gap: 24px;
-            }
-            .claim-form-sticky {
-                position: static;
-                width: 100%;
-                right: unset;
-                top: unset;
-            }
-        }
-        .claim-form-section {
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(30,40,80,0.08);
-            padding: 36px 24px 28px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .claim-form-section h1 {
-            font-size: 1.56rem;
-            font-weight: 900;
-            color: #2563eb;
-            margin-bottom: 0.5em;
-            letter-spacing: 0.12em;
-            text-align: center;
-        }
-        .claim-form-section {
-            min-height: 540px;
-            flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        @media (min-width: 700px) {
-            .support-main-flex {
-                align-items: stretch;
-            }
-            .claim-form-section {
-                min-height: 100%;
-            }
-            .support-info-card {
-                min-height: 540px;
-            }
-        }
-        @media (max-width: 1000px) {
-            .support-main-flex {
-                flex-direction: column;
-                gap: 24px;
-            }
-            .claim-form-sticky {
-                position: static;
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -569,106 +217,105 @@
     <nav>
       <ul>
         <li><a href="../index.html" style="color:inherit;text-decoration:none;">홈으로</a></li>
-        <li><a href="/about.html" class="about-link">회사소개</a></li>
-        <li><a href="/recruit.html">인재채용</a></li>
-        <li><a href="/support.html">고객지원</a></li>
-        <li><a href="/branch.html">지점안내</a></li>
+        <li><a href="about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
+        <li><a href="recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
+        <li><a href="support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
       </ul>
     </nav>
-    <main>
-        <div class="support-main-flex">
-            <div class="support-info-card">
-                <h1>휴면보험금 찾기</h1>
-                <div class="desc">
-                    혹시 잠자고 있는 나의 보험금이 있다는 사실을 아시나요?<br>
-                    <b>휴면보험금</b>은 보험계약이 실효되거나 만기되어 보험금이나 환급금 등이 발생하였음에도, 보험계약자가 이를 2년 동안 찾아가지 않아 소멸시효가 완성되어 보험회사에서 보관하고 있는 돈을 말합니다.
+    <div class="support-hero">
+        <h1>고객지원</h1>
+        <div class="desc">고객님의 행복과 권익 보호를 위해<br>따뜻하고 든든한 금융서비스를 제공합니다.</div>
+        
+        <div class="claim-form" style="max-width:60%;margin:0 auto;">
+            <h2>보험금 청구 신청</h2>
+            <form id="claimForm" method="POST" action="https://formspree.io/f/xrblgndz">
+                <div class="form-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
-                <h2>휴면보험금 조회 방법</h2>
-                <div class="step-list">
-                    <div class="step"><div class="step-title">STEP 1</div>휴면계좌통합조회, 생명보험협회, 손해보험협회 홈페이지 방문</div>
-                    <div class="step"><div class="step-title">STEP 2</div>휴면보험금 조회</div>
-                    <div class="step"><div class="step-title">STEP 3</div>휴면보험금 존재 시 해당 보험사에 신청</div>
-                    <div class="step"><div class="step-title">STEP 4</div>은행계좌로 입금</div>
+                <div class="form-group">
+                    <label for="phone">연락처</label>
+                    <input type="text" id="phone" name="phone" required>
                 </div>
-                <div class="site-links">
-                    <b>휴면보험금 조회 사이트</b><br>
-                    <a href="https://www.sleepmoney.or.kr" target="_blank">휴면계좌통합조회</a>|
-                    <a href="https://www.klia.or.kr" target="_blank">생명보험협회</a>|
-                    <a href="https://www.knia.or.kr" target="_blank">손해보험협회</a>|
-                    <a href="https://www.mif.or.kr" target="_blank">미소금융중앙재단</a>|
-                    <a href="https://www.epostbank.go.kr" target="_blank">우체국예금보험</a>
+                <div class="form-group">
+                    <label for="email">이메일 <span style="color:#b3c0e0;font-size:0.95em;">(선택)</span></label>
+                    <input type="email" id="email" name="email">
                 </div>
-                <div class="notice">
-                    <b>안내:</b> 각 사이트에서 본인 인증 후 숨은 보험금(휴면보험금) 여부를 확인할 수 있습니다.<br>
-                    보험금이 있다면 해당 보험사 고객센터에 문의하여 지급 신청이 가능합니다.
+                <div class="form-group">
+                    <label for="desc">청구 내용</label>
+                    <textarea id="desc" name="desc" required placeholder="예) 실비, 수술비" onfocus="this.placeholder=''" onblur="if(this.value===''){this.placeholder='예) 실비, 수술비'}"></textarea>
                 </div>
-            </div>
-            <div class="claim-form-sticky">
-                <section class="claim-form-section">
-                    <h1>보험금 청구 신청</h1>
-                    <form id="claimForm" method="POST" action="https://formspree.io/f/xrblgndz" style="max-width:100%;margin:0 auto;">
-                        <div class="form-group">
-                            <label for="name">이름</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">연락처</label>
-                            <input type="text" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">이메일 <span style="color:#b3c0e0;font-size:0.95em;">(선택)</span></label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="desc">청구 내용</label>
-                            <textarea id="desc" name="desc" required placeholder="예) 실비, 수술비" onfocus="this.placeholder=''" onblur="if(this.value===''){this.placeholder='예) 실비, 수술비'}"></textarea>
-                        </div>
-                        <div class="form-group privacy-agree">
-                            <input type="checkbox" id="privacy_agree" name="privacy_agree" required>
-                            <label for="privacy_agree">개인정보 수집 및 이용 동의 (신청 목적 외 사용 불가)</label>
-                        </div>
-                        <input type="hidden" name="form_type" value="insurance_claim">
-                        <button class="submit-btn" type="submit">신청하기</button>
-                    </form>
-                </section>
+                <div class="form-group" style="display:flex;align-items:center;justify-content:center;margin-bottom:18px;gap:18px;">
+                    <input type="checkbox" id="privacy_agree" name="privacy_agree" required style="margin-right:12px;transform:scale(2);">
+                    <label for="privacy_agree" style="font-size:1.15rem;font-weight:700;white-space:nowrap;">개인정보 수집 및 이용 동의 (신청 목적 외 사용 불가)</label>
+                </div>
+                <input type="hidden" name="form_type" value="insurance_claim">
+                <button class="submit-btn" type="submit">신청하기</button>
+            </form>
+        </div>
+        <!-- 성공 안내 모달 -->
+        <div id="successModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:9999; align-items:center; justify-content:center;">
+            <div style="background:#fff; color:#222; border-radius:16px; max-width:90vw; width:340px; padding:36px 24px 24px 24px; box-shadow:0 8px 32px rgba(30,40,80,0.18); text-align:center;">
+                <div style="font-size:1.15rem; font-weight:700; margin-bottom:18px;">성공적으로 제출되었습니다.<br>담당자가 빠르게 연락드리겠습니다.</div>
+                <button id="modalOkBtn" style="margin-top:18px; background:#3b82f6; color:#fff; border:none; border-radius:8px; padding:12px 32px; font-size:1rem; font-weight:700; cursor:pointer;">확인</button>
             </div>
         </div>
-        <div class="support-bottom-sections">
-            <div class="support-bottom-card">
-                <h2>금융소비자 보호</h2>
-                <ul>
-                    <li>금융소비자의 권익 보호를 최우선으로 생각합니다.</li>
-                    <li>상품 가입, 계약, 청구 등 모든 과정에서 투명하고 공정한 절차를 보장합니다.</li>
-                    <li>고객 불만 및 민원은 신속하고 성실하게 처리합니다.</li>
-                </ul>
-            </div>
-            <div class="support-bottom-card">
-                <h2>예금자 보호 안내</h2>
-                <ul>
-                    <li>당사는 예금자보호법에 따라 예금보험공사가 보호하는 금융상품만을 취급합니다.</li>
-                    <li>고객님의 소중한 자산을 안전하게 지키기 위해 최선을 다합니다.</li>
-                </ul>
-            </div>
-            <div class="support-bottom-card">
-                <h2>불건전영업 및 신고센터</h2>
-                <ul>
-                    <li>불건전영업, 불법모집, 피해사례 등은 금융감독원 신고센터를 통해 신고하실 수 있습니다.</li>
-                </ul>
-                <a class="support-link" href="https://www.fss.or.kr/fss/main/main.do?menuNo=200000" target="_blank">금융감독원 바로가기</a>
-            </div>
-        </div>
-    </main>
-    <script>
+        <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var nav = document.querySelector('nav');
-            window.addEventListener('scroll', function() {
-                if(window.scrollY > 10) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
-                }
-            });
+            var form = document.getElementById('claimForm');
+            var modal = document.getElementById('successModal');
+            var okBtn = document.getElementById('modalOkBtn');
+            if(form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var formData = new FormData(form);
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    })
+                    .then(function(response) {
+                        if(response.ok) {
+                            modal.style.display = 'flex';
+                        } else {
+                            alert('제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+                        }
+                    })
+                    .catch(function() {
+                        alert('제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+                    });
+                });
+            }
+            if(okBtn) {
+                okBtn.addEventListener('click', function() {
+                    window.location.href = '/index.html';
+                });
+            }
         });
-    </script>
+        </script>
+        
+        <div class="support-section">
+            <h2>금융소비자 보호</h2>
+            <ul>
+                <li>금융소비자의 권익 보호를 최우선으로 생각합니다.</li>
+                <li>상품 가입, 계약, 청구 등 모든 과정에서 투명하고 공정한 절차를 보장합니다.</li>
+                <li>고객 불만 및 민원은 신속하고 성실하게 처리합니다.</li>
+            </ul>
+        </div>
+        <div class="support-section">
+            <h2>예금자 보호 안내</h2>
+            <ul>
+                <li>당사는 예금자보호법에 따라 예금보험공사가 보호하는 금융상품만을 취급합니다.</li>
+                <li>고객님의 소중한 자산을 안전하게 지키기 위해 최선을 다합니다.</li>
+            </ul>
+        </div>
+        <div class="support-section">
+            <h2>불건전영업 및 신고센터</h2>
+            <ul>
+                <li>불건전영업, 불법모집, 피해사례 등은 금융감독원 신고센터를 통해 신고하실 수 있습니다.</li>
+            </ul>
+            <a class="support-link" href="https://www.fss.or.kr/fss/main/main.do?menuNo=200000" target="_blank">금융감독원 바로가기</a>
+        </div>
+    </div>
 </body>
 </html> 
