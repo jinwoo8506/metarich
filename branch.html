@@ -181,10 +181,10 @@
         }
         @media (max-width: 600px) {
             .header-bar { height: 60px; }
+            .logo { left: 16px; }
             .main-title { font-size: 1.1rem; }
             nav { padding: 0 8px; height: 44px; }
-            nav ul { gap: 12px; flex-wrap: wrap; justify-content: center; }
-            nav li { font-size: 0.9rem; white-space: nowrap; }
+            nav ul { gap: 16px; }
             .branch-title { font-size: 1.4rem; margin: 32px 0 18px 0; }
             .branch-card { padding: 20px 14px 16px 14px; }
             .branch-name { font-size: 1.2rem; }
@@ -196,15 +196,16 @@
 </head>
 <body>
     <div class="header-bar">
-        <div class="main-title"><a href="/index.html" style="text-decoration:none; color:inherit;">MetaRich Signal Group</a></div>
+        <div class="logo"><a href="/index.html" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
+        <div class="main-title">MetaRich Signal Group</div>
     </div>
     <nav>
       <ul>
         <li><a href="/index.html">홈으로</a></li>
-        <li><a href="/about.html">회사소개</a></li>
-        <li><a href="/recruit.html">인재채용</a></li>
-        <li><a href="/support.html">고객지원</a></li>
-        <li><a href="/branch.html">지점안내</a></li>
+        <li><a href="/about" class="about-link">회사소개</a></li>
+        <li><a href="/recruit">인재채용</a></li>
+        <li><a href="/support">고객지원</a></li>
+        <li><a href="/branch">지점안내</a></li>
       </ul>
     </nav>
             <div class="branch-title" style="color: #f2f8f5;">지역별 센터 안내</div>
