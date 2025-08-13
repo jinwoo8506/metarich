@@ -374,6 +374,40 @@
     </nav>
     <div class="container">
         <div class="main-content">
+            <div style="display:flex; justify-content:center; margin:32px 0;">
+                <button id="showRecruitFormBtn" class="recruit-cta" type="button" style="display:inline-block; background: linear-gradient(90deg, #3b82f6, #2563eb); color: #fff; font-weight: 700; font-size: 1.76rem; border-radius: 8px; padding: 26px 58px; text-decoration: none; box-shadow: 0 2px 12px rgba(30,40,80,0.10); transition: background 0.2s, color 0.2s; border:none; cursor:pointer;">CA 입사지원 (신입 & 경력)</button>
+            </div>
+            <div class="recruit-form" id="recruitFormWrap" style="max-width:302px; display:none;">
+                <h2>온라인 지원서</h2>
+                <form id="recruitForm" method="POST" action="https://formspree.io/f/xrblgndz" id="recruit-bottom" style="max-width:480px;margin:0 auto;">
+                    <div class="form-group">
+                        <label for="applicant_name">이름</label>
+                        <input type="text" id="applicant_name" name="applicant_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant_phone">연락처</label>
+                        <input type="tel" id="applicant_phone" name="applicant_phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant_email">이메일</label>
+                        <input type="email" id="applicant_email" name="applicant_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant_experience">경력 구분</label>
+                        <select id="applicant_experience" name="applicant_experience" required>
+                            <option value="">선택해주세요</option>
+                            <option value="신입">신입</option>
+                            <option value="경력">경력</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant_message">지원 동기 및 자기소개</label>
+                        <textarea id="applicant_message" name="applicant_message" required placeholder="지원 동기와 자기소개를 작성해주세요"></textarea>
+                    </div>
+                    <input type="hidden" name="form_type" value="recruit_application">
+                    <button class="submit-btn" type="submit">지원서 제출</button>
+                </form>
+            </div>
             <div class="recruit-hero">
                 <div class="adviser-title">Adviser</div>
             </div>
@@ -424,40 +458,6 @@
                     <div class="recruit-value-title" style="color:#fff;">DB 제공 시스템</div>
                     <div style="color:#fff;">박람회, 홈쇼핑, 온라인·병원 연계 마케팅 등<br>고객이 자발적으로 찾아오는 양질의 시장 제공</div>
                 </div>
-            </div>
-            <div style="display:flex; justify-content:center; margin:32px 0;">
-                <button id="showRecruitFormBtn" class="recruit-cta" type="button" style="display:inline-block; background: linear-gradient(90deg, #3b82f6, #2563eb); color: #fff; font-weight: 700; font-size: 1.1rem; border-radius: 8px; padding: 16px 36px; text-decoration: none; box-shadow: 0 2px 12px rgba(30,40,80,0.10); transition: background 0.2s, color 0.2s; border:none; cursor:pointer;">CA 입사지원 (신입 & 경력)</button>
-            </div>
-            <div class="recruit-form" id="recruitFormWrap" style="max-width:302px; display:none;">
-                <h2>온라인 지원서</h2>
-                <form id="recruitForm" method="POST" action="https://formspree.io/f/xrblgndz" id="recruit-bottom" style="max-width:480px;margin:0 auto;">
-                    <div class="form-group">
-                        <label for="applicant_name">이름</label>
-                        <input type="text" id="applicant_name" name="applicant_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="applicant_phone">연락처</label>
-                        <input type="tel" id="applicant_phone" name="applicant_phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="applicant_email">이메일</label>
-                        <input type="email" id="applicant_email" name="applicant_email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="applicant_experience">경력 구분</label>
-                        <select id="applicant_experience" name="applicant_experience" required>
-                            <option value="">선택해주세요</option>
-                            <option value="신입">신입</option>
-                            <option value="경력">경력</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="applicant_message">지원 동기 및 자기소개</label>
-                        <textarea id="applicant_message" name="applicant_message" required placeholder="지원 동기와 자기소개를 작성해주세요"></textarea>
-                    </div>
-                    <input type="hidden" name="form_type" value="recruit_application">
-                    <button class="submit-btn" type="submit">지원서 제출</button>
-                </form>
             </div>
         </div>
     </div>
