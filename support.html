@@ -229,24 +229,25 @@
         }
         @media (max-width: 600px) {
             .header-bar { height: 60px; }
-            .logo { left: 12px; }
             .main-title { font-size: 1.1rem; }
             .support-hero h1 { font-size: 1.2rem; }
+            nav { padding: 0 8px; height: 44px; }
+            nav ul { gap: 12px; flex-wrap: wrap; justify-content: center; }
+            nav li { font-size: 0.9rem; white-space: nowrap; }
         }
     </style>
 </head>
 <body>
     <div class="header-bar">
-        <div class="logo"><a href="/" style="text-decoration:none;"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5368%2F2024%2F01%2F03%2F0000130912_001_20240103170201804.jpg&type=a340" alt="MetaRich Logo" style="height:54px;vertical-align:middle;"></a></div>
-        <div class="main-title">MetaRich Signal Group</div>
+        <div class="main-title"><a href="/index.html" style="text-decoration:none; color:inherit;">MetaRich Signal Group</a></div>
     </div>
     <nav>
       <ul>
         <li><a href="/index.html" style="color:inherit;text-decoration:none;">홈으로</a></li>
-        <li><a href="/about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
-        <li><a href="/recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
-        <li><a href="/support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
-        <li><a href="/branch.html" style="color:inherit;text-decoration:none;">지점안내</a></li>
+        <li><a href="/public/about.html" style="color:inherit;text-decoration:none;">회사소개</a></li>
+        <li><a href="/public/recruit.html" style="color:inherit;text-decoration:none;">인재채용</a></li>
+        <li><a href="/public/support.html" style="color:inherit;text-decoration:none;">고객지원</a></li>
+        <li><a href="/public/branch.html" style="color:inherit;text-decoration:none;">지점안내</a></li>
       </ul>
     </nav>
     <div class="support-hero">
