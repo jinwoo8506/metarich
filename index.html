@@ -363,7 +363,7 @@
             <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=0&mute=0&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
             
             <!-- 방법 2: 직접 호스팅한 mp4 -->
-            <video controls autoplay muted loop>
+            <video id="introVideo" controls autoplay muted loop>
                 <source src="/public/intro.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -422,6 +422,20 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // 비디오 자동 반복재생 설정
+            var video = document.getElementById('introVideo');
+            if(video) {
+                video.addEventListener('ended', function() {
+                    video.currentTime = 0;
+                    video.play();
+                });
+                
+                // 비디오가 로드되면 자동재생 시작
+                video.addEventListener('loadeddata', function() {
+                    video.play();
+                });
+            }
+            
             // 지점안내 드롭다운
             var branchDropdown = document.querySelector('.branch-dropdown');
             var branchBtn = document.querySelector('.branch-dropbtn');
